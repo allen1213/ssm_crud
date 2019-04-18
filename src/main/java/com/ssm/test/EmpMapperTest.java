@@ -28,19 +28,35 @@ public class EmpMapperTest {
         Emp emp = empMapper.selectByPrimaryKeyWithDept(601);
         System.out.println(emp.getEmpName());*/
 
-        Map<String,Object> map = new HashMap<>();
+        /*Map<String,Object> map = new HashMap<>();
         map.put("empName","b");
 
         map.put("deptId",10);
 
 
-        List<Emp> list = empMapper.getEmpInfoByEmpNameOrDeptId(map);
+        List<Emp> list = empMapper.getEmpInfoByEmpNameOrDeptId(map);*/
+
+        //List<Emp> list = empMapper.select();
 
         /*for (Emp e : list){
             System.out.println(e.getEmpName()+"   "+e.getDeptId());
         }*/
 
-        System.out.println(list.size());
+        //System.out.println(list.size());
+
+        Emp emp = empMapper.getEmpByPK(6);
+        System.out.println(emp.getEmpName());
+
+        emp.setEmpName("gh");
+        emp.setEmail("newName@newName.com");
+        if (empMapper.update(emp) != 0) {
+            System.out.println(emp.getEmpName()+" - "+emp.getEmail());
+        }
+
+    }
+
+    @Test
+    public void testEmp(){
 
     }
 }
